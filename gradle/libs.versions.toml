@@ -1,0 +1,71 @@
+#Version Catalog Dependency Management
+[versions]
+agp = "7.1.0"
+kotlin = "1.6.10"
+core-ktx = "1.7.0"
+appcompact = "1.4.1"
+material = "1.5.0"
+constraintlayout = "2.1.3"
+junit = "4.13.2"
+ext-junit = "1.1.3"
+espresso = "3.4.0"
+nav = "2.4.0"
+nav-compose = "2.5.0-alpha01"
+lifecycle = "2.5.0-alpha01"
+timber = "5.0.1"
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+[libraries]
+#Core Plugins
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-appcompact = { module = "androidx.appcompat:appcompat", version.ref = "appcompact" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+android-material = { module = "com.google.android.material:material", version.ref = "material" }
+
+#Navigation Component
+navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "nav" }
+navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "nav" }
+#Testing Navigation
+navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "nav" }
+#Feature module Support
+#navigation-dynamic-features-fragment = {module = "androidx.navigation:navigation-dynamic-features-fragment", version.ref = "nav"}
+#Jetpack Compose Integration
+#navigation-compose = {module = "androidx.navigation:navigation-compose", version.ref = "nav"}
+
+#LifeCycle
+#ViewModel
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+#LiveData
+lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+#Lifecycles only (without ViewModel or LiveData)
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+
+lifecycle-common-java8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "lifecycle" }
+#Saved state module for ViewModel
+#lifecycle-viewmodel-savedstate = {module = "androidx.lifecycle:viewmodel-savedstate", version.ref = "lifecycle"}
+#ViewModel utilities for Compose
+#lifecycle-viewmodel-compose = {module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle"}
+# helpers for implementing LifecycleOwner in a Service
+#lifecycle-service = {module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycle"}
+# ProcessLifecycleOwner provides a lifecycle for the whole application process
+#lifecycle-process = {module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycle"}
+
+#Timber
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+#Test
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-test-junit = { module = "androidx.test.ext:junit", version.ref = "ext-junit" }
+androidx-test-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+
+[bundles]
+corePlugins = ["androidx-core-ktx", "androidx-appcompact", "androidx-constraintlayout", "android-material"]
+navigation = ["navigation-fragment-ktx", "navigation-ui-ktx"]
+lifecycle = ["lifecycle-viewmodel-ktx", "lifecycle-livedata-ktx", "lifecycle-runtime-ktx", "lifecycle-common-java8"]
+
+testPlugins = ["androidx-test-junit", "androidx-test-espresso"]
+androidTestPlugins = ["junit", "navigation-testing"]
